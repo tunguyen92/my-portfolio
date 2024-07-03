@@ -1,5 +1,5 @@
 import { Suspense, lazy } from "react";
-import Loader from "@/components/loader";
+import Loader from "@/components/Loader";
 
 interface SuspenseWrapperProps {
   path: string;

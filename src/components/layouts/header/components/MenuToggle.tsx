@@ -20,7 +20,7 @@ interface MenuToggleProps {
 
 const MenuToggle = ({ toggle }: MenuToggleProps) => (
   <svg
-    className="cursor-pointer"
+    className="cursor-pointer hover:rotate-180 duration-500 z-10 relative"
     width="30"
     height="30"
     viewBox="0 0 30 30"

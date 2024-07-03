@@ -1,0 +1,50 @@
+.section-main {
+  @apply bg-[url("@/assets/images/home-bg.jpg")] bg-no-repeat bg-center bg-cover h-full w-full;
+
+  .section-main-sub {
+    @apply flex justify-center relative;
+
+    .media-main {
+      @apply flex flex-col gap-4 content-center justify-center items-center z-0 pl-10 xl:pl-10 2xl:pl-15;
+
+      .link {
+        @apply w-12 h-12 relative text-center overflow-hidden flex items-center justify-center rounded-full border border-solid border-white;
+
+        &::before {
+          @apply content-[""] absolute w-full h-full duration-500 z-[2] left-0 top-full;
+          background: linear-gradient(90deg, #ff7d61 0%, #ffdb59 100%);
+        }
+
+        img {
+          @apply duration-500 z-[2];
+        }
+
+        &:hover {
+          &::before {
+            top: 0;
+          }
+
+          img {
+            transform: rotateY(360deg);
+          }
+        }
+      }
+    }
+
+    .section-main-right-contain {
+      @apply w-full max-w-64;
+
+      &-sub {
+        @apply p-10 border-b-gray-1 border-b border-solid;
+
+        .total-project {
+          @apply text-white text-center text-[50px] font-bold leading-16;
+        }
+
+        .project-complted {
+          @apply text-white text-center text-xl leading-7.5;
+        }
+      }
+    }
+  }
+}

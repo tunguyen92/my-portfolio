@@ -1,4 +1,10 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+
+interface SideMenuProps {
+  isOpen: boolean;
+  toggle: () => void;
+}
 
 const navbarVariants = {
   closed: {
@@ -7,7 +13,7 @@ const navbarVariants = {
     x: "-50%",
     y: "-50%",
     transition: {
-      duration: 0.5,
+      duration: 0.2,
       ease: "easeInOut",
     },
   },
@@ -17,16 +23,22 @@ const navbarVariants = {
     x: "-50%",
     y: "-50%",
     transition: {
-      duration: 0.5,
+      duration: 0.2,
       ease: "easeInOut",
     },
   },
 };
 
-const SideMenu: React.FC<{ isOpen: boolean }> = ({ isOpen }) => {
+const navbar = [
+  { item: "Home", to: "/" },
+  { item: "About", to: "/about" },
+  { item: "Contact", to: "/contact" },
+];
+
+const SideMenu = ({ isOpen, toggle }: SideMenuProps) => {
   return (
     <motion.div
-      className="navbar"
+      className="menu w-full h-screen"
       variants={navbarVariants}
       initial="closed"
       animate={isOpen ? "open" : "closed"}
@@ -35,56 +47,41 @@ const SideMenu: React.FC<{ isOpen: boolean }> = ({ isOpen }) => {
         top: "50%",
         left: "50%",
         transform: "translate(-50%, -50%)",
-        // background: "#fff",
-        padding: "1rem",
-        borderRadius: "8px",
-        boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
+        background: "var(--black-1)",
       }}
       transition={{ duration: 0.1 }}
     >
-      <h1>Navbar</h1>
-      {/* Add your navbar items here */}
-
       <div className="container">
-        <div className="row sidemenu-main">
-          <div className="col-lg-2">
-            <div className="menu-text">
-              <div className="side-menu-text">
-                <p>MENU</p>
-              </div>
-            </div>
-          </div>
-          <div className="col-lg-7 side-menu-scroll">
-            <div className="heading2">
-              <a href="index.html">Home</a>
-            </div>
-            <div className="heading2">
-              <a href="about.html">About</a>
-            </div>
+        <div className="sidemenu-main">
+          <p className="side-menu-text">MENU</p>
 
-            <div className="heading2">
-              <a href="contact.html">Contact</a>
-            </div>
+          <div className="side-menu-scroll">
+            {navbar.map((nav) => (
+              <div key={nav.item} className="heading" onClick={toggle}>
+                <Link to={nav.to}>{nav.item}</Link>
+              </div>
+            ))}
           </div>
-          <div className="col-lg-3">
-            <div className="cont-info">
-              <div className="item">
-                <p className="sub-title-address">Address</p>
-                <p className="geek-alto">
-                  121 Parkview St.
-                  <br />
-                  California, USA
-                </p>
-              </div>
-              <div className="item">
-                <p className="sub-title-address">Contact Us</p>
-                <p>
-                  <a href="mailto:biogi@mail.com">biogi@mail.com</a>
-                </p>
-                <p className="underline">
-                  <a href="tel:+1451356888">+1 451 356 888</a>
-                </p>
-              </div>
+
+          <div className="cont-info">
+            <div className="item">
+              <p className="sub-title-address">Address</p>
+              <p className="geek-alto">
+                Thu Duc,
+                <br />
+                Ho Chi Minh City
+              </p>
+            </div>
+            <div className="item">
+              <p className="sub-title-address">Contact Us</p>
+              <p>
+                <a href="mailto:thanhtu.kantee@mail.com">
+                  thanhtu.kantee@mail.com
+                </a>
+              </p>
+              <p>
+                <a href="tel:+0979456501">0979 456 501</a>
+              </p>
             </div>
           </div>
         </div>

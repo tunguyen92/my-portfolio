@@ -1,0 +1,27 @@
+.cursor {
+  width: 40px;
+  height: 40px;
+  margin-left: -20px;
+  margin-top: -20px;
+  border-radius: 50%;
+  border: 2px solid #ff7d61;
+  transition: transform 0.3s ease;
+  pointer-events: none;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cursor-grow {
+  transform: scale(2);
+  background: #ffffff;
+  mix-blend-mode: difference;
+  border: none;
+}
+
+@media (max-width: 768px) {
+  .cursor {
+    display: none;
+  }
+}

@@ -1,13 +1,10 @@
-import { Link } from "react-router-dom";
+import MainSection from "./section/MainSection";
 
 const Home = () => {
   return (
-    <div>
-      <Link to="about" className="text-red-500">
-        About
-      </Link>
-      <Link to="contact">Contact</Link>
-    </div>
+    <>
+      <MainSection />
+    </>
   );
 };
 

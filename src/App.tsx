@@ -1,15 +1,17 @@
 import { Suspense, lazy } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-import Loader from "@/components/loader";
+import BlendedCursor from "@/components/BlendedCursor";
+import Loader from "@/components/Loader";
+import SuspenseWrapper from "@/components/SuspenseWrapper";
 import PageNotFound from "@/pages/not-found";
-import SuspenseWrapper from "./components/SuspenseWrapper";
 
 const LayoutLazy = lazy(() => import("@/components/layouts"));
 
 function App() {
   return (
     <Suspense fallback={<Loader />}>
+      <BlendedCursor />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<LayoutLazy />}>

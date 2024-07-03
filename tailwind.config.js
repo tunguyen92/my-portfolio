@@ -52,6 +52,7 @@ module.exports = {
         "black-1": "var(--black-1)",
         "orange-1": "var(--orange-1)",
         "yellow-1": "var(--yellow-1)",
+        "gray-1": "var(--gray-1)",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -72,7 +73,40 @@ module.exports = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+      writingMode: {
+        "vertical-rl": "vertical-rl",
+        "horizontal-tb": "horizontal-tb",
+      },
+      padding: {
+        15: "60px",
+      },
+      screens: {
+        "2xl": "1440px",
+      },
+      lineHeight: {
+        7.5: "30px",
+        15: "60px",
+        16: "64px",
+      },
+    },
+
+    variants: {
+      writingMode: ["responsive"],
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    function ({ addUtilities }) {
+      const newUtilities = {
+        ".writing-vertical-rl": {
+          writingMode: "vertical-rl",
+        },
+        ".writing-horizontal-tb": {
+          writingMode: "horizontal-tb",
+        },
+      };
+
+      addUtilities(newUtilities, ["responsive"]);
+    },
+    require("tailwindcss-animate"),
+  ],
 };
