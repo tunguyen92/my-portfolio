@@ -1,6 +1,4 @@
-import { ReactNode } from "react";
-
-const HoverBlendedCursor = ({ children }: { children: ReactNode }) => {
+const HoverBlendedCursor = ({ children }: { children: JSX.Element }) => {
   const handleMouseEnter = () => {
     const cursorElements = document.querySelectorAll(".cursor");
     cursorElements.forEach((element) => {

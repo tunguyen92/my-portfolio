@@ -73,9 +73,11 @@
 
 :root {
   --black-1: #0f141c;
+  --black-2: #171b22;
   --orange-1: #ff7d61;
   --yellow-1: #ffdb59;
   --gray-1: #ffffff38;
+  --gray-2: #909090;
 }
 
 ::-webkit-scrollbar {

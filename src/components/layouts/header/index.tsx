@@ -8,6 +8,7 @@ import MenuToggle from "./components/MenuToggle";
 import SideMenu from "./components/SideMenu";
 
 import "./style.scss";
+import { useLayoutEffect } from "react";
 
 const navbar = [
   { item: "Home", to: "/" },
@@ -17,6 +18,14 @@ const navbar = [
 
 const Header = () => {
   const [isOpen, toggleOpen] = useCycle(false, true);
+
+  useLayoutEffect(() => {
+    if (isOpen) {
+      document.body.classList.add("no-scroll");
+    } else {
+      document.body.classList.remove("no-scroll");
+    }
+  }, [isOpen]);
 
   return (
     <header className="top-navbar bg-black-1 border-b border-b-gray-1">
@@ -32,9 +41,8 @@ const Header = () => {
             <div className="hidden lg:block">
               <div className="top-navbar-title flex items-center gap-10 lg:gap-6">
                 {navbar.map((nav) => (
-                  <HoverBlendedCursor>
+                  <HoverBlendedCursor key={nav.item}>
                     <NavLink
-                      key={nav.item}
                       to={nav.to}
                       className={({ isActive }) =>
                         `text-lg font-medium leading-6 hover:text-orange-1 ${

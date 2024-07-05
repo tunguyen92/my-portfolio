@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import BlendedCursor from "@/components/BlendedCursor";
 import Loader from "@/components/Loader";
+import ScrollTop from "@/components/ScrollTop";
 import SuspenseWrapper from "@/components/SuspenseWrapper";
 import PageNotFound from "@/pages/not-found";
 
@@ -12,6 +13,8 @@ function App() {
   return (
     <Suspense fallback={<Loader />}>
       <BlendedCursor />
+      <ScrollTop />
+
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<LayoutLazy />}>

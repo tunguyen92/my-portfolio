@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+
+import HoverBlendedCursor from "@/components/BlendedCursor/HoverBlendedCursor";
 
 interface SideMenuProps {
   isOpen: boolean;
@@ -13,8 +15,8 @@ const navbarVariants = {
     x: "-50%",
     y: "-50%",
     transition: {
-      duration: 0.2,
-      ease: "easeInOut",
+      duration: 0.3,
+      ease: "easeIn",
     },
   },
   open: {
@@ -23,8 +25,8 @@ const navbarVariants = {
     x: "-50%",
     y: "-50%",
     transition: {
-      duration: 0.2,
-      ease: "easeInOut",
+      duration: 0.3,
+      ease: "easeOut",
     },
   },
 };
@@ -38,7 +40,7 @@ const navbar = [
 const SideMenu = ({ isOpen, toggle }: SideMenuProps) => {
   return (
     <motion.div
-      className="menu w-full h-screen"
+      className={`menu ${isOpen ? "block" : "hidden"}`}
       variants={navbarVariants}
       initial="closed"
       animate={isOpen ? "open" : "closed"}
@@ -58,7 +60,14 @@ const SideMenu = ({ isOpen, toggle }: SideMenuProps) => {
           <div className="side-menu-scroll">
             {navbar.map((nav) => (
               <div key={nav.item} className="heading" onClick={toggle}>
-                <Link to={nav.to}>{nav.item}</Link>
+                <NavLink
+                  to={nav.to}
+                  className={({ isActive }) =>
+                    `hover:text-orange-1 ${isActive ? "text-orange-1" : ""}`
+                  }
+                >
+                  <HoverBlendedCursor>{nav.item}</HoverBlendedCursor>
+                </NavLink>
               </div>
             ))}
           </div>

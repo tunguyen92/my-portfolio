@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 
 import "./styles.scss";
 
-const BlendedCursor: React.FC = () => {
+const BlendedCursor = () => {
   const cursorX = useMotionValue(0);
   const cursorY = useMotionValue(0);
 

@@ -1,12 +1,8 @@
 /** @type {import('tailwindcss').Config} */
+// eslint-disable-next-line no-undef
 module.exports = {
   darkMode: ["class"],
-  content: [
-    "./pages/**/*.{ts,tsx}",
-    "./components/**/*.{ts,tsx}",
-    "./app/**/*.{ts,tsx}",
-    "./src/**/*.{ts,tsx}",
-  ],
+  content: ["./src/**/*.{js,jsx,ts,tsx}"],
   prefix: "",
   theme: {
     container: {
@@ -50,14 +46,17 @@ module.exports = {
           foreground: "hsl(var(--card-foreground))",
         },
         "black-1": "var(--black-1)",
+        "black-2": "var(--black-2)",
         "orange-1": "var(--orange-1)",
         "yellow-1": "var(--yellow-1)",
         "gray-1": "var(--gray-1)",
+        "gray-2": "var(--gray-2)",
+      },
+      backgroundImage: {
+        "custom-gradient": "linear-gradient(90deg, #ff7d61 0%, #ffdb59 100%)",
       },
       borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+        "4xl": "30px",
       },
       keyframes: {
         "accordion-down": {
@@ -77,19 +76,42 @@ module.exports = {
         "vertical-rl": "vertical-rl",
         "horizontal-tb": "horizontal-tb",
       },
-      padding: {
-        15: "60px",
-      },
       screens: {
         "2xl": "1440px",
       },
-      lineHeight: {
+      transitionDuration: {
+        1600: "1600ms",
+        9000: "9000ms",
+      },
+      boxShadow: {
+        custom: "[0px_40px_40px_-25px_rgba(19,31,47,0.60)]",
+      },
+      content: {
+        empty: '""',
+      },
+      zIndex: {
+        2: "2",
+        100: "100",
+      },
+      spacing: {
+        5.5: "22px",
+        6.5: "26px",
         7.5: "30px",
+        12.5: "50px",
         15: "60px",
+        16: "64px",
+        22.5: "90px",
+        25: "100px",
+        38.5: "150px",
+        82.5: "330px",
+        400: "1600",
+      },
+      lineHeight: {
+        6.5: "26px",
+        7.5: "30px",
         16: "64px",
       },
     },
-
     variants: {
       writingMode: ["responsive"],
     },
@@ -107,6 +129,7 @@ module.exports = {
 
       addUtilities(newUtilities, ["responsive"]);
     },
+    // eslint-disable-next-line no-undef
     require("tailwindcss-animate"),
   ],
 };

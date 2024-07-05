@@ -1,5 +1,5 @@
 .section-main {
-  @apply bg-[url("@/assets/images/home-bg.jpg")] bg-no-repeat bg-center bg-cover h-full w-full;
+  @apply bg-[url("@/assets/images/home-bg.jpg")] bg-no-repeat bg-center bg-cover h-full w-full overflow-hidden;
 
   .section-main-sub {
     @apply flex justify-center relative;
@@ -11,12 +11,11 @@
         @apply w-12 h-12 relative text-center overflow-hidden flex items-center justify-center rounded-full border border-solid border-white;
 
         &::before {
-          @apply content-[""] absolute w-full h-full duration-500 z-[2] left-0 top-full;
-          background: linear-gradient(90deg, #ff7d61 0%, #ffdb59 100%);
+          @apply content-empty absolute w-full h-full duration-500 z-2 left-0 top-full bg-custom-gradient;
         }
 
         img {
-          @apply duration-500 z-[2];
+          @apply duration-500 z-2;
         }
 
         &:hover {
@@ -31,6 +30,59 @@
       }
     }
 
+    .container2 {
+      @apply w-full max-w-400 px-3 py-0 border-r-gray-1 border-r border-solid;
+
+      .main-text {
+        @apply text-center text-4xl font-medium pt-12.5;
+
+        span {
+          display: inline-block;
+          transform-origin: 70% 70%;
+          animation: wave-animation 2.5s infinite;
+        }
+      }
+
+      h1 {
+        @apply text-center text-7xl 2xl:text-8xl font-bold leading-normal;
+
+        mark {
+          background: linear-gradient(90deg, #ff7d61 0%, #ffdb59 100%);
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
+          animation: hue 10s infinite linear;
+        }
+      }
+
+      .home-girl-img-main {
+        @apply relative flex items-center justify-center;
+
+        .my-name {
+          @apply text-black-1 text-center text-2xl font-medium leading-normal px-5 py-2 rounded-lg bg-custom-gradient;
+        }
+
+        .worked-box {
+          @apply shadow-custom w-full max-w-82.5 absolute p-5 rounded-2xl left-0 bottom-12.5 bg-black-2;
+
+          .worked-more {
+            @apply text-xl leading-normal pb-4;
+          }
+
+          .client-img-main {
+            @apply relative flex items-center justify-between;
+
+            .worked-more2 {
+              @apply text-base max-w-15 p-0;
+
+              &::before {
+                @apply content-empty block w-12.5 h-0.5 bg-white absolute right-22.5 top-5.5;
+              }
+            }
+          }
+        }
+      }
+    }
+
     .section-main-right-contain {
       @apply w-full max-w-64;
 
@@ -38,13 +90,79 @@
         @apply p-10 border-b-gray-1 border-b border-solid;
 
         .total-project {
-          @apply text-white text-center text-[50px] font-bold leading-16;
+          @apply text-center text-5xl font-bold leading-16;
         }
 
         .project-complted {
-          @apply text-white text-center text-xl leading-7.5;
+          @apply text-center text-xl leading-7.5;
+        }
+      }
+
+      .flower-box {
+        @apply text-center p-7.5 border-b-gray-1 border-b border-solid;
+
+        .flower {
+          margin: auto;
+          filter: brightness(0) saturate(100%) invert(50%) sepia(73%)
+            saturate(413%) hue-rotate(323deg) brightness(103%) contrast(101%);
+        }
+
+        .freelance {
+          @apply text-gray-2 text-center text-base font-medium leading-6.5 pt-5;
+
+          span {
+            @apply text-white;
+          }
+        }
+      }
+
+      .mouse-main {
+        @apply flex items-center justify-center gap-5 px-0 py-20 2xl:py-22.5;
+
+        .mouse {
+          @apply h-25 w-15 flex items-center justify-center rounded-4xl border-2 border-solid border-white;
+        }
+
+        .scroll-down {
+          @apply text-base font-medium leading-7.5 max-w-20 text-center;
         }
       }
     }
+  }
+}
+
+@keyframes wave-animation {
+  0% {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(14deg);
+  }
+  20% {
+    transform: rotate(-8deg);
+  }
+  30% {
+    transform: rotate(14deg);
+  }
+  40% {
+    transform: rotate(-4deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+  60% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes hue {
+  0% {
+    -webkit-filter: hue-rotate(0deg);
+  }
+  100% {
+    -webkit-filter: hue-rotate(-360deg);
   }
 }

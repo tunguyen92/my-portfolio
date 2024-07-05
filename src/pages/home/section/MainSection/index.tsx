@@ -1,15 +1,27 @@
+import { motion, useInView, useMotionValue, useTransform } from "framer-motion";
+
+import {
+  arrowMain,
+  clientsImg1,
+  clientsImg2,
+  clientsImg3,
+  clientsImg4,
+  flower,
+  girl,
+} from "@/assets/images";
 import {
   envelope,
   facebook,
   github,
   mediaLineBottom,
   mediaLineTop,
+  mouseArrowDown,
+  polygonArrow,
   youtube,
 } from "@/assets/svgs";
-
-import "./styles.scss";
 import HoverBlendedCursor from "@/components/BlendedCursor/HoverBlendedCursor";
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import "./styles.scss";
 
 const links = [
   {
@@ -34,15 +46,45 @@ const links = [
   },
 ];
 
+const initialFadeUp = { opacity: 0, x: 0, y: 100, z: 0 };
+const initialFadeDown = { opacity: 0, x: 0, y: -100, z: 0 };
+const initialFadeLeft = { opacity: 0, x: 100, y: 0, z: 0 };
+const initialFadeRight = { opacity: 0, x: -100, y: 0, z: 0 };
+const animate = { opacity: 1, x: 0, y: 0, z: 0 };
+const transition = {
+  ease: "easeInOut",
+  duration: 1.6,
+};
+
 const MainSection = () => {
+  // Create motion values to track the mouse position
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  // Create transformations based on the mouse position
+  const translateX = useTransform(mouseX, [0, window.innerWidth], [20, -20]);
+  const translateY = useTransform(mouseY, [0, window.innerHeight], [20, -20]);
+
+  // Handle mouse move event
+  const handleMouseMove = (
+    event: React.MouseEvent<HTMLDivElement, MouseEvent>
+  ) => {
+    mouseX.set(event.clientX);
+    mouseY.set(event.clientY);
+  };
+
+  // Handle scroll in view
+  const workedBoxRef = useRef(null);
+  const isInView = useInView(workedBoxRef);
+
   return (
-    <section className="section-main">
+    <section className="section-main" onMouseMove={handleMouseMove}>
       <div className="section-main-sub">
         <div className="media-main">
           <img src={mediaLineTop} alt="media-line-top" />
 
           {links.map((link) => (
-            <HoverBlendedCursor>
+            <HoverBlendedCursor key={link.href}>
               <a className="link" href={link.href}>
                 <img src={link.srcImg} alt={link.alt} />
               </a>
@@ -52,153 +94,133 @@ const MainSection = () => {
           <img src={mediaLineBottom} alt="media-line-bottom" />
         </div>
 
-        <div className="container2 position-relative">
-          <p className="main-text aos-init aos-animate" data-aos="fade-down">
+        <div className="container2">
+          <motion.p
+            className="main-text"
+            initial={initialFadeDown}
+            animate={animate}
+            transition={transition}
+          >
             Hello, I am <span>👋</span>
-          </p>
+          </motion.p>
           <h1>
-            <mark>Web</mark> Designer.
+            <mark>Web</mark> Developer.
           </h1>
           <div className="home-girl-img-main">
-            <div className="position-relative">
-              <div
-                className="JessicaBiogi-main aos-init aos-animate"
-                data-aos="fade-down"
+            <motion.img
+              src={girl}
+              alt="girl"
+              initial={initialFadeUp}
+              animate={animate}
+              transition={transition}
+            />
+
+            <motion.div
+              className="absolute top-25 right-0"
+              initial={initialFadeDown}
+              animate={animate}
+              transition={transition}
+            >
+              <motion.div
+                className="relative"
+                style={{ translateX, translateY }}
               >
-                <div
-                  className="position-relative"
-                  id="JessicaBiogi_main"
-                  style={{ transform: "translate3d(-15.1px, -1.45556px, 0px)" }}
-                >
-                  <img
-                    className="JessicaBiogi-svg"
-                    src="assets/images/Polygon-arrow.svg"
-                    alt="Polygon-arrow"
-                  />
-                  <p className="jessica-biogi">Jessica Biogi</p>
-                </div>
+                <img
+                  className="absolute -top-5 -left-5"
+                  src={polygonArrow}
+                  alt="polygon-arrow"
+                />
+                <p className="my-name">Tu Nguyen</p>
+              </motion.div>
+            </motion.div>
+
+            <motion.img
+              className="absolute right-38.5 bottom-12.5"
+              id="arrow"
+              src={arrowMain}
+              alt="arrow-main"
+              style={{ translateX, translateY }}
+            />
+
+            <motion.div
+              className="worked-box"
+              ref={workedBoxRef}
+              initial={initialFadeRight}
+              animate={isInView ? animate : initialFadeRight}
+              transition={transition}
+              style={{ x: translateX, y: translateY }}
+            >
+              <p className="worked-more">
+                Worked with a diverse range of individuals
+              </p>
+              <div className="client-img-main">
+                <img
+                  className="rounded-full hover:z-10 relative"
+                  src={clientsImg1}
+                  alt="clients-img1"
+                />
+                <img
+                  className="rounded-full hover:z-10 absolute left-7.5"
+                  src={clientsImg2}
+                  alt="clients-img2"
+                />
+                <img
+                  className="rounded-full hover:z-10 absolute left-15"
+                  src={clientsImg3}
+                  alt="clients-img3"
+                />
+                <img
+                  className="rounded-full hover:z-10 absolute left-22.5"
+                  src={clientsImg4}
+                  alt="clients-img4"
+                />
+                <p className="worked-more worked-more2"> 10+ Clients</p>
               </div>
-              <img
-                className="home-girl-img aos-init aos-animate"
-                src="assets/images/girl.png"
-                alt="girl"
-                data-aos="fade-up"
-              />
-              <img
-                className="arrow-main"
-                id="arrow"
-                src="assets/images/arrow-main.png"
-                alt="arrow-main"
-                style={{ transform: "translate3d(-15.1px, -1.45556px, 0px)" }}
-              />
-              <div
-                id="worked_box"
-                style={{
-                  transform: "translate3d(-20.1333px, -2.18333px, 0px)",
-                }}
-              >
-                <div className="worked-box aos-init" data-aos="fade-right">
-                  <p className="worked-more">
-                    Worked with more than 100 people
-                  </p>
-                  <div className="client-img-main position-relative">
-                    <img
-                      className="client-img client-img1"
-                      src="assets/images/clients-img1.jpg"
-                      alt="clients-img1"
-                    />
-                    <img
-                      className="client-img client-img2"
-                      src="assets/images/clients-img2.jpg"
-                      alt="clients-img2"
-                    />
-                    <img
-                      className="client-img client-img3"
-                      src="assets/images/clients-img3.jpg"
-                      alt="clients-img3"
-                    />
-                    <img
-                      className="client-img client-img4"
-                      src="assets/images/clients-img4.jpg"
-                      alt="clients-img4"
-                    />
-                    <p className="worked-more worked-more2"> 100+ Clients</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+            </motion.div>
           </div>
         </div>
 
         <div className="section-main-right-contain">
           <motion.div
             className="section-main-right-contain-sub"
-            initial={{ opacity: 0, transform: "translate3d(100px, 0, 0)" }}
-            animate={{ opacity: 1, transform: "translateZ(0)" }}
-            transition={{
-              ease: "easeInOut",
-              duration: 1.6,
-            }}
+            initial={initialFadeLeft}
+            animate={animate}
+            transition={transition}
           >
-            <h2 className="total-project">700+</h2>
+            <h2 className="total-project">10+</h2>
             <p className="project-complted">PROJECT COMPLETED</p>
           </motion.div>
-          <div className="flower-box aos-init aos-animate" data-aos="fade-left">
+
+          <motion.div
+            className="flower-box"
+            initial={initialFadeLeft}
+            animate={animate}
+            transition={transition}
+          >
             <img
-              className="flower"
-              src="assets/images/flower.png"
+              className="flower animate-spin duration-9000"
+              src={flower}
               alt="flower"
             />
-            <h2 className="Freelance">
-              A <span>Freelance Designer and Developer based in USA.</span> I
-              strives to build immersive and beautiful web applications through
-              carefully crafted used-centric design.
+            <h2 className="freelance">
+              A <span>Front-end Developer based in Vietnam.</span> I strives to
+              build immersive and beautiful web applications through carefully
+              crafted used-centric design.
             </h2>
-          </div>
-          <div className="mouse-scroll-box">
+          </motion.div>
+
+          <HoverBlendedCursor>
             <a href="#section-two" className="mouse-main">
               <div className="mouse">
-                <svg
-                  className="mouse-arrow-down"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width={24}
-                  height={40}
-                  viewBox="0 0 24 40"
-                  fill="none"
-                >
-                  <g clipPath="url(#clip0_37_162)">
-                    <path
-                      d="M12 5L12 35"
-                      stroke="#FFDB59"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                    <path
-                      d="M16 31L12 35"
-                      stroke="#FFDB59"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                    <path
-                      d="M8 31L12 35"
-                      stroke="#FFDB59"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </g>
-                  <defs>
-                    <clipPath id="clip0_37_162">
-                      <rect width={24} height={40} fill="white" />
-                    </clipPath>
-                  </defs>
-                </svg>
+                <img
+                  className="animate-bounce duration-1600 mt-5"
+                  src={mouseArrowDown}
+                  alt="mouse-arrow-down"
+                />
               </div>
               <h2 className="scroll-down">SCROLL DOWN</h2>
             </a>
-          </div>
+          </HoverBlendedCursor>
         </div>
       </div>
     </section>

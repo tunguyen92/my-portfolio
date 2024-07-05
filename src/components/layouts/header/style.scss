@@ -1,5 +1,15 @@
+body {
+  &.no-scroll {
+    overflow: hidden;
+  }
+}
+
 .outer-menu {
+  @apply z-50;
+
   .menu {
+    @apply w-full h-screen;
+
     .sidemenu-main {
       @apply h-screen flex justify-center content-center items-center;
 
