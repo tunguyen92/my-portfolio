@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import { motion, useInView, useMotionValue, useTransform } from "framer-motion";
 
 import {
@@ -20,7 +21,8 @@ import {
   youtube,
 } from "@/assets/svgs";
 import HoverBlendedCursor from "@/components/BlendedCursor/HoverBlendedCursor";
-import { useRef } from "react";
+import useMediaQuery from "@/hooks/useMediaQuery";
+
 import "./styles.scss";
 
 const links = [
@@ -57,6 +59,8 @@ const transition = {
 };
 
 const MainSection = () => {
+  const isMobile = useMediaQuery("(max-width: 640px)");
+
   // Create motion values to track the mouse position
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
@@ -107,76 +111,81 @@ const MainSection = () => {
             <mark>Web</mark> Developer.
           </h1>
           <div className="home-girl-img-main">
-            <motion.img
-              src={girl}
-              alt="girl"
-              initial={initialFadeUp}
-              animate={animate}
-              transition={transition}
-            />
-
-            <motion.div
-              className="absolute top-25 right-0"
-              initial={initialFadeDown}
-              animate={animate}
-              transition={transition}
-            >
+            <div className="relative">
               <motion.div
-                className="relative"
-                style={{ translateX, translateY }}
+                className="max-w-50 mx-auto pt-3 sm:pt-0 static sm:absolute sm:top-10 lg:top-25 right-0"
+                initial={initialFadeDown}
+                animate={animate}
+                transition={transition}
               >
-                <img
-                  className="absolute -top-5 -left-5"
-                  src={polygonArrow}
-                  alt="polygon-arrow"
-                />
-                <p className="my-name">Tu Nguyen</p>
+                <motion.div
+                  className="relative"
+                  style={{
+                    translateX: isMobile ? 0 : translateX,
+                    translateY: isMobile ? 0 : translateY,
+                  }}
+                >
+                  <img
+                    className="hidden sm:block absolute -top-5 -left-5"
+                    src={polygonArrow}
+                    alt="polygon-arrow"
+                  />
+                  <p className="my-name">Tu Nguyen</p>
+                </motion.div>
               </motion.div>
-            </motion.div>
 
-            <motion.img
-              className="absolute right-38.5 bottom-12.5"
-              id="arrow"
-              src={arrowMain}
-              alt="arrow-main"
-              style={{ translateX, translateY }}
-            />
+              <motion.img
+                src={girl}
+                alt="girl"
+                initial={initialFadeUp}
+                animate={animate}
+                transition={transition}
+              />
 
-            <motion.div
-              className="worked-box"
-              ref={workedBoxRef}
-              initial={initialFadeRight}
-              animate={isInView ? animate : initialFadeRight}
-              transition={transition}
-              style={{ x: translateX, y: translateY }}
-            >
-              <p className="worked-more">
-                Worked with a diverse range of individuals
-              </p>
-              <div className="client-img-main">
-                <img
-                  className="rounded-full hover:z-10 relative"
-                  src={clientsImg1}
-                  alt="clients-img1"
-                />
-                <img
-                  className="rounded-full hover:z-10 absolute left-7.5"
-                  src={clientsImg2}
-                  alt="clients-img2"
-                />
-                <img
-                  className="rounded-full hover:z-10 absolute left-15"
-                  src={clientsImg3}
-                  alt="clients-img3"
-                />
-                <img
-                  className="rounded-full hover:z-10 absolute left-22.5"
-                  src={clientsImg4}
-                  alt="clients-img4"
-                />
-                <p className="worked-more worked-more2"> 10+ Clients</p>
-              </div>
-            </motion.div>
+              <motion.img
+                className="absolute right-38.5 bottom-12.5 hidden md:block"
+                id="arrow"
+                src={arrowMain}
+                alt="arrow-main"
+                style={{ translateX, translateY }}
+              />
+
+              <motion.div
+                className="worked-box"
+                ref={workedBoxRef}
+                initial={initialFadeRight}
+                animate={isInView ? animate : initialFadeRight}
+                transition={{ duration: 0.6, ease: "linear" }}
+                style={{ x: translateX, y: translateY }}
+              >
+                <p className="worked-more">
+                  Worked with a diverse range of individuals
+                </p>
+                <div className="client-img-main">
+                  <img
+                    className="rounded-full hover:z-10 relative"
+                    src={clientsImg1}
+                    alt="clients-img1"
+                  />
+                  <img
+                    className="rounded-full hover:z-10 absolute left-7.5"
+                    src={clientsImg2}
+                    alt="clients-img2"
+                  />
+                  <img
+                    className="rounded-full hover:z-10 absolute left-15"
+                    src={clientsImg3}
+                    alt="clients-img3"
+                  />
+                  <img
+                    className="rounded-full hover:z-10 absolute left-22.5"
+                    src={clientsImg4}
+                    alt="clients-img4"
+                  />
+                  <p className="worked-more worked-more2"> 10+ Clients</p>
+                </div>
+              </motion.div>
+            </div>
           </div>
         </div>
 

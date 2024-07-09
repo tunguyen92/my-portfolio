@@ -77,6 +77,7 @@ module.exports = {
         "horizontal-tb": "horizontal-tb",
       },
       screens: {
+        sx: "365px",
         "2xl": "1440px",
       },
       transitionDuration: {
@@ -93,6 +94,12 @@ module.exports = {
         2: "2",
         100: "100",
       },
+      fontSize: {
+        "5xl": ["48px", "normal"],
+        "6xl": ["60px", "normal"],
+        "7xl": ["72px", "normal"],
+        "8xl": ["96px", "normal"],
+      },
       spacing: {
         5.5: "22px",
         6.5: "26px",
@@ -103,6 +110,7 @@ module.exports = {
         22.5: "90px",
         25: "100px",
         38.5: "150px",
+        50: "200px",
         82.5: "330px",
         400: "1600",
       },

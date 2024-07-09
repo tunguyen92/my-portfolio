@@ -5,7 +5,7 @@
     @apply flex justify-center relative;
 
     .media-main {
-      @apply flex flex-col gap-4 content-center justify-center items-center z-0 pl-10 xl:pl-10 2xl:pl-15;
+      @apply hidden lg:flex lg:flex-col gap-4 content-center lg:justify-center lg:items-center z-0 pl-10 xl:pl-10 2xl:pl-15;
 
       .link {
         @apply w-12 h-12 relative text-center overflow-hidden flex items-center justify-center rounded-full border border-solid border-white;
@@ -34,7 +34,7 @@
       @apply w-full max-w-400 px-3 py-0 border-r-gray-1 border-r border-solid;
 
       .main-text {
-        @apply text-center text-4xl font-medium pt-12.5;
+        @apply text-center font-medium md:text-4xl md:pt-12.5 text-xl pt-7.5;
 
         span {
           display: inline-block;
@@ -44,7 +44,7 @@
       }
 
       h1 {
-        @apply text-center text-7xl 2xl:text-8xl font-bold leading-normal;
+        @apply text-center text-4xl sx:text-5xl md:text-7xl 2xl:text-8xl font-bold leading-normal;
 
         mark {
           background: linear-gradient(90deg, #ff7d61 0%, #ffdb59 100%);
@@ -55,14 +55,14 @@
       }
 
       .home-girl-img-main {
-        @apply relative flex items-center justify-center;
+        @apply flex items-center justify-center;
 
         .my-name {
-          @apply text-black-1 text-center text-2xl font-medium leading-normal px-5 py-2 rounded-lg bg-custom-gradient;
+          @apply text-black-1 text-center font-medium leading-normal px-5 py-2 rounded-lg bg-custom-gradient text-lg md:text-2xl;
         }
 
         .worked-box {
-          @apply shadow-custom w-full max-w-82.5 absolute p-5 rounded-2xl left-0 bottom-12.5 bg-black-2;
+          @apply shadow-custom w-full max-w-82.5 absolute p-5 rounded-2xl left-0 bottom-12.5 bg-black-2 hidden sm:block;
 
           .worked-more {
             @apply text-xl leading-normal pb-4;
@@ -84,7 +84,7 @@
     }
 
     .section-main-right-contain {
-      @apply w-full max-w-64;
+      @apply w-full max-w-64 hidden xl:block;
 
       &-sub {
         @apply p-10 border-b-gray-1 border-b border-solid;

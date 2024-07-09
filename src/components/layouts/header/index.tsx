@@ -1,14 +1,15 @@
 import { motion, useCycle } from "framer-motion";
+import { memo, useLayoutEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 
 import { myCV } from "@/assets/pdfs";
-import { download, logo } from "@/assets/svgs";
+import { download } from "@/assets/svgs";
+import { logo } from "@/assets/images";
 import HoverBlendedCursor from "@/components/BlendedCursor/HoverBlendedCursor";
 import MenuToggle from "./components/MenuToggle";
 import SideMenu from "./components/SideMenu";
 
 import "./style.scss";
-import { useLayoutEffect } from "react";
 
 const navbar = [
   { item: "Home", to: "/" },
@@ -16,7 +17,7 @@ const navbar = [
   { item: "Contact", to: "/contact" },
 ];
 
-const Header = () => {
+const Header = memo(() => {
   const [isOpen, toggleOpen] = useCycle(false, true);
 
   useLayoutEffect(() => {
@@ -28,12 +29,12 @@ const Header = () => {
   }, [isOpen]);
 
   return (
-    <header className="top-navbar bg-black-1 border-b border-b-gray-1">
+    <motion.header className="top-navbar bg-black-1 border-b border-b-gray-1 sticky top-0 z-100">
       <div className="container">
         <div className="top-navbar_full flex items-center justify-between py-3">
           <HoverBlendedCursor>
             <Link to="/">
-              <img src={logo} alt="logo" />
+              <img src={logo} alt="logo" style={{ height: 60 }} />
             </Link>
           </HoverBlendedCursor>
 
@@ -78,8 +79,8 @@ const Header = () => {
           </div>
         </div>
       </div>
-    </header>
+    </motion.header>
   );
-};
+});
 
 export default Header;
