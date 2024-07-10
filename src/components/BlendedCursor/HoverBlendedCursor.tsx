@@ -1,4 +1,10 @@
-const HoverBlendedCursor = ({ children }: { children: JSX.Element }) => {
+const HoverBlendedCursor = ({
+  children,
+  isFitWidth,
+}: {
+  children: JSX.Element;
+  isFitWidth?: boolean;
+}) => {
   const handleMouseEnter = () => {
     const cursorElements = document.querySelectorAll(".cursor");
     cursorElements.forEach((element) => {
@@ -15,7 +21,7 @@ const HoverBlendedCursor = ({ children }: { children: JSX.Element }) => {
 
   return (
     <div
-      className="blended-cursor"
+      className={`blended-cursor ${isFitWidth && "w-fit"}`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >

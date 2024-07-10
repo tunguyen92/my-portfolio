@@ -51,6 +51,7 @@ module.exports = {
         "yellow-1": "var(--yellow-1)",
         "gray-1": "var(--gray-1)",
         "gray-2": "var(--gray-2)",
+        "gray-3": "var(--gray-3)",
       },
       backgroundImage: {
         "custom-gradient": "linear-gradient(90deg, #ff7d61 0%, #ffdb59 100%)",
@@ -67,10 +68,19 @@ module.exports = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        mover: {
+          "0%": {
+            transform: " translateY(0)",
+          },
+          "100% ": {
+            transform: "translateY(-8px)",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "bounce-slow": " mover 1s infinite alternate",
       },
       writingMode: {
         "vertical-rl": "vertical-rl",
@@ -107,11 +117,17 @@ module.exports = {
         12.5: "50px",
         15: "60px",
         16: "64px",
+        17.5: "70px",
         22.5: "90px",
         25: "100px",
+        27: "108px",
+        27.5: "110px",
+        35: "140px",
         38.5: "150px",
+        42.5: "170px",
         50: "200px",
         82.5: "330px",
+        95: "380px",
         400: "1600",
       },
       lineHeight: {

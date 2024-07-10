@@ -1,0 +1,18 @@
+.explore-me {
+  a {
+    transition: stroke 0.3s ease;
+    path {
+      stroke: var(--yellow-1);
+    }
+
+    &:hover {
+      svg {
+        transform: translateX(10px);
+
+        path {
+          stroke: var(--orange-1);
+        }
+      }
+    }
+  }
+}

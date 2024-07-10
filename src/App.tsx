@@ -4,36 +4,34 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import BlendedCursor from "@/components/BlendedCursor";
 import Loader from "@/components/Loader";
 import ScrollTop from "@/components/ScrollTop";
-import SuspenseWrapper from "@/components/SuspenseWrapper";
+import About from "@/pages/about";
+import Contact from "@/pages/contact";
+import Home from "@/pages/home";
 import PageNotFound from "@/pages/not-found";
 
 const LayoutLazy = lazy(() => import("@/components/layouts"));
 
 function App() {
   return (
-    <Suspense fallback={<Loader />}>
+    <>
       <BlendedCursor />
       <ScrollTop />
 
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<LayoutLazy />}>
-            <Route index element={<SuspenseWrapper path="pages/home" />} />
+      <Suspense fallback={<Loader />}>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<LayoutLazy />}>
+              <Route index element={<Home />} />
 
-            <Route
-              path="about"
-              element={<SuspenseWrapper path="pages/about" />}
-            />
-            <Route
-              path="contact"
-              element={<SuspenseWrapper path="pages/contact" />}
-            />
+              <Route path="about" element={<About />} />
+              <Route path="contact" element={<Contact />} />
 
-            <Route path="*" element={<PageNotFound />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
-    </Suspense>
+              <Route path="*" element={<PageNotFound />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </Suspense>
+    </>
   );
 }
 

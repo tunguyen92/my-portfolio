@@ -1,3 +1,4 @@
+import arrowRight from "@/assets/svgs/arrow-right.svg";
 import download from "@/assets/svgs/download.svg";
 import envelope from "@/assets/svgs/envelope.svg";
 import facebook from "@/assets/svgs/facebook.svg";
@@ -10,6 +11,7 @@ import polygonArrow from "@/assets/svgs/polygon-arrow.svg";
 import youtube from "@/assets/svgs/youtube.svg";
 
 export {
+  arrowRight,
   download,
   envelope,
   facebook,

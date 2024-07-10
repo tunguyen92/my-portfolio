@@ -1,5 +1,11 @@
 import { useRef } from "react";
-import { motion, useInView, useMotionValue, useTransform } from "framer-motion";
+import {
+  motion,
+  MotionValue,
+  useInView,
+  useMotionValue,
+  useTransform,
+} from "framer-motion";
 
 import {
   arrowMain,
@@ -22,6 +28,14 @@ import {
 } from "@/assets/svgs";
 import HoverBlendedCursor from "@/components/BlendedCursor/HoverBlendedCursor";
 import useMediaQuery from "@/hooks/useMediaQuery";
+import {
+  animateFade,
+  initialFadeDown,
+  initialFadeLeft,
+  initialFadeRight,
+  initialFadeUp,
+  transition,
+} from "@/utils/animate";
 
 import "./styles.scss";
 
@@ -48,14 +62,52 @@ const links = [
   },
 ];
 
-const initialFadeUp = { opacity: 0, x: 0, y: 100, z: 0 };
-const initialFadeDown = { opacity: 0, x: 0, y: -100, z: 0 };
-const initialFadeLeft = { opacity: 0, x: 100, y: 0, z: 0 };
-const initialFadeRight = { opacity: 0, x: -100, y: 0, z: 0 };
-const animate = { opacity: 1, x: 0, y: 0, z: 0 };
-const transition = {
-  ease: "easeInOut",
-  duration: 1.6,
+const WorkedBox = ({
+  translateX,
+  translateY,
+}: {
+  translateX: MotionValue<number>;
+  translateY: MotionValue<number>;
+}) => {
+  // Handle scroll in view
+  const workedBoxRef = useRef(null);
+  const isInView = useInView(workedBoxRef);
+
+  return (
+    <motion.div
+      className="worked-box"
+      ref={workedBoxRef}
+      initial={initialFadeRight}
+      animate={isInView ? animateFade : initialFadeRight}
+      transition={{ duration: 0.6, ease: "linear" }}
+      style={{ x: translateX, y: translateY }}
+    >
+      <p className="worked-more">Worked with a diverse range of individuals</p>
+      <div className="client-img-main">
+        <img
+          className="rounded-full hover:z-10 relative"
+          src={clientsImg1}
+          alt="clients-img1"
+        />
+        <img
+          className="rounded-full hover:z-10 absolute left-7.5"
+          src={clientsImg2}
+          alt="clients-img2"
+        />
+        <img
+          className="rounded-full hover:z-10 absolute left-15"
+          src={clientsImg3}
+          alt="clients-img3"
+        />
+        <img
+          className="rounded-full hover:z-10 absolute left-22.5"
+          src={clientsImg4}
+          alt="clients-img4"
+        />
+        <p className="worked-more worked-more2"> 10+ Clients</p>
+      </div>
+    </motion.div>
+  );
 };
 
 const MainSection = () => {
@@ -76,10 +128,6 @@ const MainSection = () => {
     mouseX.set(event.clientX);
     mouseY.set(event.clientY);
   };
-
-  // Handle scroll in view
-  const workedBoxRef = useRef(null);
-  const isInView = useInView(workedBoxRef);
 
   return (
     <section className="section-main" onMouseMove={handleMouseMove}>
@@ -102,7 +150,7 @@ const MainSection = () => {
           <motion.p
             className="main-text"
             initial={initialFadeDown}
-            animate={animate}
+            animate={animateFade}
             transition={transition}
           >
             Hello, I am <span>👋</span>
@@ -115,7 +163,7 @@ const MainSection = () => {
               <motion.div
                 className="max-w-50 mx-auto pt-3 sm:pt-0 static sm:absolute sm:top-10 lg:top-25 right-0"
                 initial={initialFadeDown}
-                animate={animate}
+                animate={animateFade}
                 transition={transition}
               >
                 <motion.div
@@ -138,7 +186,7 @@ const MainSection = () => {
                 src={girl}
                 alt="girl"
                 initial={initialFadeUp}
-                animate={animate}
+                animate={animateFade}
                 transition={transition}
               />
 
@@ -150,41 +198,7 @@ const MainSection = () => {
                 style={{ translateX, translateY }}
               />
 
-              <motion.div
-                className="worked-box"
-                ref={workedBoxRef}
-                initial={initialFadeRight}
-                animate={isInView ? animate : initialFadeRight}
-                transition={{ duration: 0.6, ease: "linear" }}
-                style={{ x: translateX, y: translateY }}
-              >
-                <p className="worked-more">
-                  Worked with a diverse range of individuals
-                </p>
-                <div className="client-img-main">
-                  <img
-                    className="rounded-full hover:z-10 relative"
-                    src={clientsImg1}
-                    alt="clients-img1"
-                  />
-                  <img
-                    className="rounded-full hover:z-10 absolute left-7.5"
-                    src={clientsImg2}
-                    alt="clients-img2"
-                  />
-                  <img
-                    className="rounded-full hover:z-10 absolute left-15"
-                    src={clientsImg3}
-                    alt="clients-img3"
-                  />
-                  <img
-                    className="rounded-full hover:z-10 absolute left-22.5"
-                    src={clientsImg4}
-                    alt="clients-img4"
-                  />
-                  <p className="worked-more worked-more2"> 10+ Clients</p>
-                </div>
-              </motion.div>
+              <WorkedBox translateX={translateX} translateY={translateY} />
             </div>
           </div>
         </div>
@@ -193,7 +207,7 @@ const MainSection = () => {
           <motion.div
             className="section-main-right-contain-sub"
             initial={initialFadeLeft}
-            animate={animate}
+            animate={animateFade}
             transition={transition}
           >
             <h2 className="total-project">10+</h2>
@@ -203,7 +217,7 @@ const MainSection = () => {
           <motion.div
             className="flower-box"
             initial={initialFadeLeft}
-            animate={animate}
+            animate={animateFade}
             transition={transition}
           >
             <img
