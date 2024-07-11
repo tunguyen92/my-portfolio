@@ -29,3 +29,10 @@
     cursor: pointer;
   }
 }
+
+@media (max-width: 576px) {
+  .progress {
+    bottom: 20px;
+    right: 12px;
+  }
+}

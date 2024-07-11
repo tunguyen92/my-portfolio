@@ -44,7 +44,7 @@
       }
 
       h1 {
-        @apply text-center text-4xl sx:text-5xl md:text-7xl 2xl:text-8xl font-bold leading-normal;
+        @apply text-center text-4xl xs:text-5xl md:text-7xl 2xl:text-8xl font-bold leading-normal;
 
         mark {
           background: linear-gradient(90deg, #ff7d61 0%, #ffdb59 100%);

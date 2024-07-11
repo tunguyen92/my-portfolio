@@ -12,13 +12,19 @@ const transition = {
   duration: 1.6,
 };
 
+const transitionInView = {
+  ease: "linear",
+  duration: 0.6,
+};
+
 export {
   animateFade,
+  animateZoom,
   initialFadeDown,
   initialFadeLeft,
   initialFadeRight,
   initialFadeUp,
   initialZoomIn,
   transition,
-  animateZoom,
+  transitionInView,
 };

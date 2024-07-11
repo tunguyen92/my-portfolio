@@ -35,6 +35,7 @@ import {
   initialFadeRight,
   initialFadeUp,
   transition,
+  transitionInView,
 } from "@/utils/animate";
 
 import "./styles.scss";
@@ -79,7 +80,7 @@ const WorkedBox = ({
       ref={workedBoxRef}
       initial={initialFadeRight}
       animate={isInView ? animateFade : initialFadeRight}
-      transition={{ duration: 0.6, ease: "linear" }}
+      transition={transitionInView}
       style={{ x: translateX, y: translateY }}
     >
       <p className="worked-more">Worked with a diverse range of individuals</p>
