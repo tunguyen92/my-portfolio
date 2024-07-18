@@ -1,6 +1,6 @@
-import { motion, useInView } from "framer-motion";
-import useEmblaCarousel from "embla-carousel-react";
 import AutoScroll from "embla-carousel-auto-scroll";
+import useEmblaCarousel from "embla-carousel-react";
+import { motion, useInView } from "framer-motion";
 import { useLayoutEffect, useRef } from "react";
 
 import {

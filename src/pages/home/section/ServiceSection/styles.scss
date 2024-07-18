@@ -1,0 +1,19 @@
+.service-section {
+  .view-work-circle {
+    @apply overflow-hidden relative z-0 w-30 sl:w-37.5 md:w-47.5 h-30 sl:h-37.5 md:h-47.5 flex items-center justify-center cursor-pointer rounded-full;
+
+    &:before {
+      @apply content-empty w-0 h-0 absolute -z-1 transition-all duration-500 ease-in-out rounded-full left-1/2 top-1/2;
+    }
+
+    &:hover {
+      &:before {
+        @apply content-empty w-62.5 h-62.5 left-[-30%] top-[-14%] transition-all duration-500 ease-in-out;
+      }
+    }
+
+    a {
+      @apply text-center text-lg md:text-xl font-medium leading-8 tracking-2 max-w-25;
+    }
+  }
+}

@@ -102,10 +102,18 @@ module.exports = {
         empty: '""',
       },
       zIndex: {
+        1: "1",
         2: "2",
         100: "100",
       },
+      letterSpacing: {
+        1: "1px",
+        2: "2px",
+      },
       fontSize: {
+        40: "40px",
+        35: "35px",
+        36: "36px",
         "5xl": ["48px", "normal"],
         "6xl": ["60px", "normal"],
         "7xl": ["72px", "normal"],
@@ -125,13 +133,16 @@ module.exports = {
         25: "100px",
         27: "108px",
         27.5: "110px",
+        30: "120px",
         35: "140px",
-        38.5: "150px",
+        37.5: "150px",
         42: "168px",
         42.5: "170px",
         46: "184px",
+        47.5: "190px",
         50: "200px",
         51: "204px",
+        62.5: "250px",
         82.5: "330px",
         95: "380px",
         400: "1600",
@@ -140,6 +151,7 @@ module.exports = {
         6.5: "26px",
         7.5: "30px",
         12: "48px",
+        12.5: "50px",
         16: "64px",
       },
     },
@@ -155,6 +167,15 @@ module.exports = {
         },
         ".writing-horizontal-tb": {
           writingMode: "horizontal-tb",
+        },
+        ".text-fill-transparent": {
+          "-webkit-text-fill-color": "transparent",
+        },
+        ".text-stroke-white": {
+          "-webkit-text-stroke-color": "#ffffff",
+        },
+        ".text-stroke-w-1": {
+          "-webkit-text-stroke-width": "1px",
         },
       };
 

@@ -47,9 +47,7 @@
         @apply text-center text-4xl xs:text-5xl md:text-7xl 2xl:text-8xl font-bold leading-normal;
 
         mark {
-          background: linear-gradient(90deg, #ff7d61 0%, #ffdb59 100%);
-          background-clip: text;
-          -webkit-text-fill-color: transparent;
+          @apply bg-custom-gradient bg-clip-text text-fill-transparent;
           animation: hue 10s infinite linear;
         }
       }

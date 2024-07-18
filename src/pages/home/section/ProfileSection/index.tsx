@@ -123,7 +123,7 @@ const ProfileSection = () => {
               >
                 <Link
                   to="/about"
-                  className="flex items-center w-fit text-yellow-1 text-lg sl:text-xl font-medium tracking-[2px] hover:text-orange-1 gap-2"
+                  className="flex items-center w-fit text-yellow-1 text-lg sl:text-xl font-medium tracking-2 hover:text-orange-1 gap-2"
                 >
                   EXPLORE ME
                   <svg

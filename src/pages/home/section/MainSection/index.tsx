@@ -192,7 +192,7 @@ const MainSection = () => {
               />
 
               <motion.img
-                className="absolute right-38.5 bottom-12.5 hidden md:block"
+                className="absolute right-37.5 bottom-12.5 hidden md:block"
                 id="arrow"
                 src={arrowMain}
                 alt="arrow-main"

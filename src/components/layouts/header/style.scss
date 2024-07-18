@@ -21,7 +21,7 @@ body {
         @apply h-full flex flex-col justify-center overflow-x-auto w-full lg:w-7/12;
 
         .heading {
-          @apply text-4xl font-semibold uppercase tracking-[1px] border px-7 py-2.5 border-solid border-[#ffffff0d];
+          @apply text-4xl font-semibold uppercase tracking-1 border px-7 py-2.5 border-solid border-[#ffffff0d];
         }
       }
 
@@ -30,7 +30,7 @@ body {
 
         .item {
           .sub-title-address {
-            @apply text-sm uppercase tracking-[2px] opacity-70 font-normal pb-5;
+            @apply text-sm uppercase tracking-2 opacity-70 font-normal pb-5;
           }
 
           .geek-alto {

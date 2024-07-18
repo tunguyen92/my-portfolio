@@ -1,0 +1,78 @@
+.header_full_sec {
+  overflow: hidden;
+  user-select: none;
+  position: relative;
+
+  &:after,
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 30%;
+    height: 100%;
+    z-index: 2;
+  }
+
+  &:before {
+    left: 0;
+    background: linear-gradient(
+      to right,
+      hsl(215.75deg 20.16% 7.73%) 0%,
+      rgba(0, 0, 0, 0) 99%,
+      rgba(0, 0, 0, 0) 100%
+    );
+  }
+
+  &:after {
+    right: 0;
+    background: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0) 1%,
+      rgb(16 21 27) 98%
+    );
+  }
+
+  .embla {
+    font-family: "Syne", Sans-serif;
+
+    &__viewport {
+      overflow: hidden;
+    }
+
+    &__container {
+      backface-visibility: hidden;
+      display: flex;
+      touch-action: pan-y pinch-zoom;
+    }
+
+    .ticker__item {
+      font-size: 100px;
+      line-height: 120px;
+      font-weight: 700;
+      will-change: transform;
+      -webkit-text-stroke-width: 1px;
+      -webkit-text-stroke-color: #ffffff;
+      color: transparent;
+      white-space: nowrap;
+
+      @media (max-width: 1024px) {
+        font-size: 70px;
+        line-height: 80px;
+      }
+      @media (max-width: 575px) {
+        font-size: 40px;
+        line-height: 50px;
+      }
+
+      &_dark {
+        color: #ffffff;
+      }
+
+      &::before {
+        content: "_";
+        color: transparent;
+      }
+    }
+  }
+}
