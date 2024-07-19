@@ -19,7 +19,7 @@ import {
 import {
   envelope,
   facebook,
-  github,
+  githubLogo,
   mediaLineBottom,
   mediaLineTop,
   mouseArrowDown,
@@ -48,7 +48,7 @@ const links = [
   },
   {
     href: "https://github.com/tunguyen92",
-    srcImg: github,
+    srcImg: githubLogo,
     alt: "github",
   },
   {

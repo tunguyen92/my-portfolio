@@ -126,7 +126,7 @@ const ServiceSection = () => {
                     transition={transitionInView}
                   >
                     <AccordionItem value="item-1">
-                      <AccordionTrigger className="text-2xl md:text-3xl lg:text-36 py-5 lg:leading-12">
+                      <AccordionTrigger className="text-2xl md:text-3xl lg:text-36 lg:leading-12">
                         Visual Design
                       </AccordionTrigger>
                       <AccordionContent className="text-gray-2 text-lg">
@@ -149,7 +149,7 @@ const ServiceSection = () => {
                     transition={transitionInView}
                   >
                     <AccordionItem value="item-2">
-                      <AccordionTrigger className="text-2xl md:text-3xl lg:text-36 py-5 leading-12">
+                      <AccordionTrigger className="text-2xl md:text-3xl lg:text-36 leading-12">
                         Design Systems
                       </AccordionTrigger>
                       <AccordionContent className="text-gray-2 text-lg">
@@ -173,7 +173,7 @@ const ServiceSection = () => {
                     transition={transitionInView}
                   >
                     <AccordionItem value="item-3">
-                      <AccordionTrigger className="text-2xl md:text-3xl lg:text-36 py-5 leading-12">
+                      <AccordionTrigger className="text-2xl md:text-3xl lg:text-36 leading-12">
                         Web Design &amp; Development
                       </AccordionTrigger>
                       <AccordionContent className="text-gray-2 text-lg">
@@ -196,7 +196,7 @@ const ServiceSection = () => {
                     transition={transitionInView}
                   >
                     <AccordionItem value="item-4" className="border-none">
-                      <AccordionTrigger className="text-2xl md:text-3xl lg:text-36 py-5 leading-12">
+                      <AccordionTrigger className="text-2xl md:text-3xl lg:text-36 pb-0 leading-12">
                         Design Systems
                       </AccordionTrigger>
                       <AccordionContent className="text-gray-2 text-lg">
