@@ -15,6 +15,7 @@ import flower from "@/assets/images/flower.png";
 import girl2 from "@/assets/images/girl-img2.png";
 import girl from "@/assets/images/girl.png";
 import logo from "@/assets/images/logo.png";
+import project1 from "@/assets/images/projects/project-img1.jpg";
 import trophy from "@/assets/images/trophy.png";
 import years from "@/assets/images/years-img.png";
 
@@ -36,6 +37,7 @@ export {
   logo6,
   logo7,
   logo8,
+  project1,
   trophy,
   years,
 };

@@ -111,9 +111,10 @@ module.exports = {
         2: "2px",
       },
       fontSize: {
-        40: "40px",
+        32: "32px",
         35: "35px",
         36: "36px",
+        40: "40px",
         80: "80px",
         "5xl": ["48px", "normal"],
         "6xl": ["60px", "normal"],
@@ -150,6 +151,7 @@ module.exports = {
         82.5: "330px",
         95: "380px",
         97.5: "390px",
+        122.5: "490px",
         400: "1600",
       },
       lineHeight: {
@@ -182,6 +184,9 @@ module.exports = {
         },
         ".text-stroke-w-1": {
           "-webkit-text-stroke-width": "1px",
+        },
+        ".backface-hidden": {
+          "backface-visibility": "hidden",
         },
       };
 
