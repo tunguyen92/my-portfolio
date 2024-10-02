@@ -1,4 +1,5 @@
 import BrandSection from "./section/BrandSection";
+import ContactTicker from "./section/ContactTicker";
 import MainSection from "./section/MainSection";
 import ProfileSection from "./section/ProfileSection";
 import ProjectsSection from "./section/ProjectsSection";
@@ -20,6 +21,7 @@ const Home = () => {
       <SkillsSection />
       <ProjectsSection />
       <TestimonialsSection />
+      <ContactTicker />
     </>
   );
 };
