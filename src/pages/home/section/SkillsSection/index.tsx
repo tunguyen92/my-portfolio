@@ -158,7 +158,7 @@ const SkillsSection = () => {
     <section className="skills-section">
       <div className="container">
         <motion.p
-          className="my_skills"
+          className="our-services"
           ref={refs.mySkills}
           animate={isInView.mySkills ? animateFade : initialFadeUp}
           transition={transitionInView}
@@ -167,7 +167,7 @@ const SkillsSection = () => {
         </motion.p>
 
         <motion.h2
-          className="my-expertise"
+          className="our-solution"
           ref={refs.myExpertise}
           animate={isInView.myExpertise ? animateFade : initialFadeDown}
           transition={transitionInView}

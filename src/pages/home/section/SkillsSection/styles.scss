@@ -1,11 +1,11 @@
 .skills-section {
   @apply py-5 sl:py-7.5 md:py-12.5 lg:py-17.5 2xl:py-25 text-center;
 
-  .my_skills {
+  .our-services {
     @apply bg-custom-gradient text-fill-transparent bg-clip-text text-lg sl:text-xl font-medium leading-5;
   }
 
-  .my-expertise {
+  .our-solution {
     @apply text-3xl sl:text-35 md:text-40 lg:text-5xl leading-10 sl:leading-12.5 md:leading-14 lg:leading-16 font-bold;
   }
 

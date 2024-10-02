@@ -1,11 +1,11 @@
 .projects-section {
   @apply py-5 sl:pb-7.5 md:pb-12.5 lg:pb-17.5 2xl:pb-25 text-center;
 
-  .discover-our-cases {
+  .our-services {
     @apply bg-custom-gradient text-fill-transparent bg-clip-text text-lg sl:text-xl font-medium leading-5;
   }
 
-  .projects {
+  .our-solution {
     @apply text-3xl sl:text-35 md:text-40 lg:text-5xl leading-10 sl:leading-12.5 md:leading-14 lg:leading-16 font-bold;
   }
 

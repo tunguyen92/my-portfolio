@@ -16,6 +16,10 @@ import girl2 from "@/assets/images/girl-img2.png";
 import girl from "@/assets/images/girl.png";
 import logo from "@/assets/images/logo.png";
 import project1 from "@/assets/images/projects/project-img1.jpg";
+import testimonialClientImg1 from "@/assets/images/testimonial_client/testimonial_client_img1.jpg";
+import testimonialClientImg2 from "@/assets/images/testimonial_client/testimonial_client_img2.jpg";
+import testimonialClientImg3 from "@/assets/images/testimonial_client/testimonial_client_img3.jpg";
+import testimonialClientImg4 from "@/assets/images/testimonial_client/testimonial_client_img4.jpg";
 import trophy from "@/assets/images/trophy.png";
 import years from "@/assets/images/years-img.png";
 
@@ -38,6 +42,10 @@ export {
   logo7,
   logo8,
   project1,
+  testimonialClientImg1,
+  testimonialClientImg2,
+  testimonialClientImg3,
+  testimonialClientImg4,
   trophy,
   years,
 };

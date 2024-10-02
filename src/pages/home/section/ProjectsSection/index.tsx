@@ -33,7 +33,7 @@ const ProjectsSection = () => {
     <section className="projects-section">
       <div className="container">
         <motion.p
-          className="discover-our-cases"
+          className="our-services"
           ref={refs.discover}
           animate={isInView.discover ? animateFade : initialFadeUp}
           transition={transitionInView}
@@ -42,7 +42,7 @@ const ProjectsSection = () => {
         </motion.p>
 
         <motion.h2
-          className="projects"
+          className="our-solution"
           ref={refs.project}
           animate={isInView.project ? animateFade : initialFadeDown}
           transition={transitionInView}

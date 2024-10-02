@@ -4,7 +4,10 @@ import ProfileSection from "./section/ProfileSection";
 import ProjectsSection from "./section/ProjectsSection";
 import ServiceSection from "./section/ServiceSection";
 import SkillsSection from "./section/SkillsSection";
+import TestimonialsSection from "./section/TestimonialsSection";
 import UserBrandSection from "./section/UserBrandSection";
+
+import "./styles.scss";
 
 const Home = () => {
   return (
@@ -16,6 +19,7 @@ const Home = () => {
       <UserBrandSection />
       <SkillsSection />
       <ProjectsSection />
+      <TestimonialsSection />
     </>
   );
 };

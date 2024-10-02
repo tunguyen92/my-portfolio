@@ -1,0 +1,124 @@
+.testimonials {
+  @apply px-0 py-5 sl:py-7.5 md:py-12.5 lg:py-17.5 2xl:py-25 bg-black-2 overflow-hidden;
+
+  .our-services,
+  .our-solution {
+    @apply text-center lg:text-left;
+  }
+
+  .embla {
+    .great-work-svg {
+      @apply flex items-center gap-2.5 pb-2.5 sl:pb-5 sl:gap-5;
+
+      h3 {
+        @apply text-2xl font-medium leading-7.5;
+      }
+    }
+
+    .posuere {
+      @apply text-gray-2 font-normal text-lg leading-6.5 pb-2.5 sl:text-xl sl:leading-7.5 sl:pb-7.5;
+    }
+
+    .slider-line {
+      @apply w-full;
+    }
+
+    .client_details {
+      @apply flex items-center gap-5 pt-5 sl:pt-2;
+
+      .testimonial_client_img {
+        @apply max-w-full rounded-full w-20 h-20;
+      }
+
+      .client-name {
+        @apply font-medium text-xl leading-7.5 sl:text-2xl sl:leading-8;
+      }
+
+      .studio {
+        @apply text-gray-2 text-base font-medium leading-normal;
+      }
+    }
+  }
+
+  .embla {
+    margin: auto;
+    padding-top: 60px;
+    --slide-height: 19rem;
+    --slide-spacing: 30px;
+    --slide-size: 50%;
+
+    position: relative;
+  }
+  .embla__viewport {
+    overflow: hidden;
+  }
+  .embla__container {
+    display: flex;
+    touch-action: pan-y pinch-zoom;
+    margin-left: calc(var(--slide-spacing) * -1);
+  }
+  .embla__slide {
+    flex: 0 0 var(--slide-size);
+    min-width: 0;
+    padding-left: var(--slide-spacing);
+  }
+
+  // .embla__controls {
+  //   display: grid;
+  //   grid-template-columns: auto 1fr;
+  //   justify-content: space-between;
+  //   gap: 1.2rem;
+  //   margin-top: 1.8rem;
+  // }
+  // .embla__buttons {
+  //   display: grid;
+  //   grid-template-columns: repeat(2, 1fr);
+  //   gap: 0.6rem;
+  //   align-items: center;
+  // }
+  .embla__button {
+    cursor: pointer;
+    position: absolute;
+    top: -50px;
+    background: #0f141c;
+    color: #fff;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .embla__button:hover {
+    background: linear-gradient(90deg, #ff7d61 0%, #ffdb59 100%);
+  }
+
+  .embla__button--prev {
+    right: 100px;
+  }
+  .embla__button--next {
+    left: calc(100% + -80px);
+  }
+  .embla__button__svg {
+    width: 35%;
+    height: 35%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .testimonials {
+    .embla {
+      padding-top: 10px;
+    }
+
+    .embla__slide {
+      flex: 0 0 100%;
+    }
+
+    .embla__controls {
+      display: none;
+    }
+  }
+}

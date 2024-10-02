@@ -49,7 +49,7 @@ const ServiceSection = () => {
         <div className="services-section flex flex-wrap justify-between">
           <div className="w-full lg:w-1/3">
             <motion.p
-              className="our-services bg-custom-gradient bg-clip-text text-fill-transparent text-center lg:text-start text-lg sl:text-xl font-medium"
+              className="our-services"
               ref={refs.ourServices}
               animate={isInView.ourServices ? animateFade : initialFadeUp}
               transition={transitionInView}
@@ -58,7 +58,7 @@ const ServiceSection = () => {
             </motion.p>
 
             <motion.h2
-              className="our-solution text-center lg:text-start text-3xl sl:text-35 md:text-40 lg:text-5xl leading-12.5 md:leading-[55px] lg:leading-16 pb-0 sl:pb-2.5 lg:pb-7.5 font-bold"
+              className="our-solution"
               ref={refs.ourSolution}
               animate={isInView.ourSolution ? animateFade : initialFadeUp}
               transition={transitionInView}

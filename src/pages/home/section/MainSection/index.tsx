@@ -1,8 +1,8 @@
-import { useRef } from "react";
+// import { useRef } from "react";
 import {
   motion,
   MotionValue,
-  useInView,
+  // useInView,
   useMotionValue,
   useTransform,
 } from "framer-motion";
@@ -35,7 +35,7 @@ import {
   initialFadeRight,
   initialFadeUp,
   transition,
-  transitionInView,
+  // transitionInView,
 } from "@/utils/animate";
 
 import "./styles.scss";
@@ -71,16 +71,17 @@ const WorkedBox = ({
   translateY: MotionValue<number>;
 }) => {
   // Handle scroll in view
-  const workedBoxRef = useRef(null);
-  const isInView = useInView(workedBoxRef);
+  // const workedBoxRef = useRef(null);
+  // const isInView = useInView(workedBoxRef);
 
   return (
     <motion.div
       className="worked-box"
-      ref={workedBoxRef}
+      // ref={workedBoxRef}
       initial={initialFadeRight}
-      animate={isInView ? animateFade : initialFadeRight}
-      transition={transitionInView}
+      // animate={isInView ? animateFade : initialFadeRight}
+      animate={animateFade}
+      transition={transition}
       style={{ x: translateX, y: translateY }}
     >
       <p className="worked-more">Worked with a diverse range of individuals</p>
@@ -196,6 +197,9 @@ const MainSection = () => {
                 id="arrow"
                 src={arrowMain}
                 alt="arrow-main"
+                initial={initialFadeDown}
+                animate={animateFade}
+                transition={transition}
                 style={{ translateX, translateY }}
               />
 

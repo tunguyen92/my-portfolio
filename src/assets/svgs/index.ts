@@ -29,6 +29,7 @@ import mediaLineBottom from "@/assets/svgs/media-line-bottom.svg";
 import mediaLineTop from "@/assets/svgs/media-line-top.svg";
 import mouseArrowDown from "@/assets/svgs/mouse-arrow-down.svg";
 import polygonArrow from "@/assets/svgs/polygon-arrow.svg";
+import quotes from "@/assets/svgs/quotes.svg";
 import youtube from "@/assets/svgs/youtube.svg";
 
 export {
@@ -56,6 +57,7 @@ export {
   npm,
   photoshop,
   polygonArrow,
+  quotes,
   react,
   redux,
   sass,
